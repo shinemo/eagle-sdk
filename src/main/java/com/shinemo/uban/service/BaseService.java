@@ -7,6 +7,7 @@ import com.shinemo.uban.utils.UbHttpClient;
 import com.shinemo.uban.utils.UbJsonUtils;
 import com.shinemo.uban.utils.UbRandomStringUtils;
 import com.shinemo.uban.utils.UbSignUtils;
+import lombok.Setter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,9 +18,13 @@ import java.util.Map;
  * Date: 2017/4/13
  * Time: 11:25
  */
+@Setter
 public class BaseService {
 
-    public Result invoke(BaseParam baseParam,String uri) throws Exception{
+    private String secret; // 密钥
+    private String account; // 登录账号
+
+    public Result invoke(BaseParam baseParam, String uri) throws Exception {
         String param = UbJsonUtils.toJson(baseParam);
         Map<String, String> header = getRequestHeader();
         String result = UbHttpClient.PostJsonRequest(EgConstant.EAGLE_URL + uri, header, param);
@@ -28,8 +33,6 @@ public class BaseService {
 
     private Map<String, String> getRequestHeader() {
         String nonce = UbRandomStringUtils.randomNumStr(4);
-        String secret = "****"; // 密钥
-        String account = "****"; // 登录账号
         String timestamp = System.currentTimeMillis() + "";
         String sign = UbSignUtils.generateSign(account, nonce, timestamp, secret);
         Map<String, String> head = new HashMap<String, String>(4);
