@@ -24,7 +24,7 @@ public class Demo {
         Map<String, String> paramMap = new HashMap<String, String>();
         paramMap.put("1", "大家好");// 短信模板中的变量
         smsSendParam.setParamValue(paramMap);
-
+        // 如果你的项目使用到Spring相关的框架，可以将账号和秘钥配置到配置文件中
         EgSmsSendService egSmsSendService = new EgSmsSendService();
         egSmsSendService.setAccount("*****");// uban管理中心的用户资料中的账号ID
         egSmsSendService.setSecret("*****");// uban管理中心的用户资料中的加密秘钥
