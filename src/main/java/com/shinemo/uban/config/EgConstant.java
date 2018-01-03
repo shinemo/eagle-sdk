@@ -8,7 +8,7 @@ package com.shinemo.uban.config;
  */
 public class EgConstant {
     // 前缀
-    public final static String EAGLE_URL = " https://ubantx.com/eagle";
+    public final static String EAGLE_URL = " https://api.ubantx.com/eagle";
 
     // 发送短信
     public final static String SEND_SMS_URI = "/sms/send.json";
