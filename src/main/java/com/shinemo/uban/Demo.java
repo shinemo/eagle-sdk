@@ -16,6 +16,7 @@ import java.util.Map;
  * Time: 10:57
  */
 public class Demo {
+
     public static void main(String[] args) throws Exception {
         SmsSendParam smsSendParam = new SmsSendParam();
         smsSendParam.setTo("18368497687");// 接收手机号
